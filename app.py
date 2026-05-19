@@ -69,7 +69,7 @@ with col2:
 # =========================================================
 
 def preprocess_input():
-    
+
     data = {
         "monto": monto,
         "edad": edad,
@@ -82,40 +82,21 @@ def preprocess_input():
 
     df = pd.DataFrame([data])
 
-    # =====================================================
-    # TRANSFORMACIONES EXACTAS DEL ENTRENAMIENTO
-    # =====================================================
-
     # One Hot Encoding
-    df = pd.get_dummies(
-        df,
-        columns=["tipo_transaccion", "dispositivo", "ubicacion"]
-    )
+    df = pd.get_dummies(df)
 
-    # Columnas esperadas por el modelo
-    expected_columns = [
-        'monto',
-        'edad',
-        'saldo',
-        'num_transacciones',
-        'tipo_transaccion_Compra',
-        'tipo_transaccion_Pago',
-        'tipo_transaccion_Retiro',
-        'tipo_transaccion_Transferencia',
-        'dispositivo_Laptop',
-        'dispositivo_Móvil',
-        'dispositivo_PC',
-        'dispositivo_Tablet',
-        'ubicacion_Internacional',
-        'ubicacion_Local'
-    ]
+    # =====================================================
+    # COLUMNAS EXACTAS DEL ENTRENAMIENTO
+    # =====================================================
+
+    expected_columns = logistic_model.feature_names_in_
 
     # Agregar columnas faltantes
     for col in expected_columns:
         if col not in df.columns:
             df[col] = 0
 
-    # Ordenar columnas
+    # Eliminar columnas extras
     df = df[expected_columns]
 
     return df
