@@ -31,9 +31,9 @@ st.title("💳 Sistema de Predicción de Fraude Financiero")
 st.markdown("""
 Esta aplicación utiliza dos modelos de Machine Learning para detectar posibles fraudes financieros:
 - Regresión Logística
-- Random Forest 
-LinkColab: https://colab.research.google.com/drive/1f_SzLxRmo-zj92H5q9ZYtnqRUXTsVObs?usp=sharing
-Autor: Bruno Angelo Contreras Nuñez
+- Random Forest
+- LinkColab: https://colab.research.google.com/drive/1f_SzLxRmo-zj92H5q9ZYtnqRUXTsVObs?usp=sharing
+- Autor: Bruno Angelo Contreras Nuñez
 """)
 
 # =========================================================
